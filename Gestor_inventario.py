@@ -13,6 +13,14 @@ class VentanaInventario(ct.CTk):
             ('Coca Cola 600ml', 'Productos/CocaCola_600.png', 'QR.png', 'Agotado'),
             ('Fanta Naranja 600ml', 'Productos/Fanta_Naranja_600.png', 'QR.png', 'Critico'),
             ('Fanta Uva 600ml', 'Productos/Fanta_Uva_600.png','QR.png', 'Optimo'),
+            ('Agua Ciel 1l', 'Productos/Ciel_1L.png', 'QR.png', 'Optimo'),
+            ('Coca Cola 600ml', 'Productos/CocaCola_600.png', 'QR.png', 'Agotado'),
+            ('Fanta Naranja 600ml', 'Productos/Fanta_Naranja_600.png', 'QR.png', 'Critico'),
+            ('Fanta Uva 600ml', 'Productos/Fanta_Uva_600.png','QR.png', 'Optimo'),
+            ('Agua Ciel 1l', 'Productos/Ciel_1L.png', 'QR.png', 'Optimo'),
+            ('Coca Cola 600ml', 'Productos/CocaCola_600.png', 'QR.png', 'Agotado'),
+            ('Fanta Naranja 600ml', 'Productos/Fanta_Naranja_600.png', 'QR.png', 'Critico'),
+            ('Fanta Uva 600ml', 'Productos/Fanta_Uva_600.png','QR.png', 'Optimo'),
             ('Sprite 600ml', 'Productos/Sprite_600.png', 'QR.png', 'Excesivo')
         ]
 

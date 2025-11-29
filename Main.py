@@ -1,5 +1,6 @@
 import customtkinter as ct
 from PIL import Image
+from Gestor_inventario import VentanaInventario
 
 class VentanaPrincipal(ct.CTk):
     def __init__(self):
@@ -76,17 +77,16 @@ class VentanaPrincipal(ct.CTk):
         label_txt.pack()
 
         # Bind para que todo el frame funcione como botón
-        frame_boton.bind("<Button-1>", lambda e: comando() if comando else None)
-        label_img.bind("<Button-1>", lambda e: comando() if comando else None)
-        label_txt.bind("<Button-1>", lambda e: comando() if comando else None)
+        frame_boton.bind("<Button-1>", lambda e: comando())
+        label_img.bind("<Button-1>", lambda e: comando())
+        label_txt.bind("<Button-1>", lambda e: comando())
 
 
         return frame_boton
     
     def abrir_inventario(self, event=None):
-        from Gestor_inventario import VentanaInventario
         ventana_inventario = VentanaInventario()
-        ventana_inventario.grab_set()
+        #ventana_inventario.grab_set()
         #self.destroy()
 
 if __name__ == "__main__":
