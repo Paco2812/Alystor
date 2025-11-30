@@ -1,9 +1,11 @@
 import customtkinter as ct
 from PIL import Image
+from Ventana_Producto import VentanaProducto
 
-class VentanaInventario(ct.CTk):
-    def __init__(self):
-        super().__init__()
+class VentanaInventario(ct.CTkToplevel):
+    def __init__(self, master):
+        super().__init__(master)
+
 
         self.imagenes_cache = []
 
@@ -30,10 +32,20 @@ class VentanaInventario(ct.CTk):
 
         ANCHO = 725
         ALTO = 450
+
+        MARGEN_X = 56
+        MARGEN_Y = 72
+
+        ANCHO_SCROLL = ANCHO - (MARGEN_X * 2)
+        ALTO_SCROLL = ALTO - (MARGEN_Y * 2)
+
         self.centrar_ventana(ANCHO, ALTO)
 
-        frame = ct.CTkScrollableFrame(self, fg_color="#D3E0F2", width=664, height=362, corner_radius=30)
+        frame = ct.CTkScrollableFrame(self, fg_color="#D3E0F2", width=ANCHO_SCROLL, height=ALTO_SCROLL, corner_radius=30)
         frame.place(relx=0.5, rely=0.54, anchor="center")
+        frame.grid_columnconfigure(0, weight=1)
+        frame.grid_columnconfigure(1, weight=0)
+        frame.grid_columnconfigure(2, weight=1)
 
         self.lista_productos(frame)
 
@@ -49,9 +61,9 @@ class VentanaInventario(ct.CTk):
         self.geometry(f"{ancho}x{alto}+{x}+{y}")
 
     def cargar_imagen(self, ruta, ancho, alto):
-        imagen = Image.open(ruta)
-        imagen = imagen.resize((ancho, alto))
-        return ct.CTkImage(imagen)
+        img = Image.open(ruta)
+        img = img.resize((ancho, alto))
+        return ct.CTkImage(light_image=img, dark_image=img, size=(ancho, alto))
 
 
     def crear_frame_productos(self, frame, fila, nombre, imagen, qr, estado):
@@ -66,7 +78,10 @@ class VentanaInventario(ct.CTk):
             color = "#FF8080"    
 
         frame_producto = ct.CTkFrame(frame, fg_color=color, width=600, height=40)
-        frame_producto.grid(row=fila, column=0, padx=30, pady=5)
+        frame_producto.grid(row=fila, column=1, pady=5, sticky="nsew")
+        frame_producto.grid_propagate(False)
+
+        frame_producto.grid_columnconfigure(1, weight=1)
 
         img1 = self.cargar_imagen(imagen, 30, 30)
         self.imagenes_cache.append(img1)
@@ -74,12 +89,12 @@ class VentanaInventario(ct.CTk):
         label_imagen.grid(row=0, column=0, padx=5, pady=5)
 
         label_nombre = ct.CTkLabel(frame_producto, text=nombre, fg_color="transparent", font=("Arial", 16))
-        label_nombre.grid(row=0, column=1, padx=5, pady=5)
+        label_nombre.grid(row=0, column=1, padx=5, pady=5, sticky="w")
 
         img2 = self.cargar_imagen(qr, 30, 30)
         self.imagenes_cache.append(img2)
         label_qr = ct.CTkLabel(frame_producto, image=img2, text="")
-        label_qr.grid(row=0, column=2, padx=30, pady=5)
+        label_qr.grid(row=0, column=2, padx=30, pady=5, sticky="e")
 
         return frame_producto
     
@@ -90,6 +105,10 @@ class VentanaInventario(ct.CTk):
             n += 1
 
         return
+
+    def abrir_info_producto(self, event=None):
+        ventana_producto = VentanaProducto(self)
+        ventana_producto.grab_set()
 
 if __name__ == "__main__":
     app = VentanaInventario()

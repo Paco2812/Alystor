@@ -26,7 +26,10 @@ class VentanaPrincipal(ct.CTk):
             frame.grid_columnconfigure(j, weight=1)
 
         # Logo Alystor en el centro del frame
-        label_logo = self.label_imagen(frame, self.cargar_imagen("Logo_Alystor.png", 200, 200), 0, 1)
+        frame_logo = ct.CTkFrame(frame, fg_color="transparent")
+        frame_logo.grid(row=0, column=1, padx=5, pady=5, sticky="nsew", rowspan=2)
+
+        label_logo = self.label_imagen(frame_logo, self.cargar_imagen("Logo_Alystor.png", 200, 200))
 
         # Botones de la página de inicio
         boton1 = self.boton_imagen(frame, self.cargar_imagen("inventario.png", 70, 70), "Gestión de inventario", 0, 0, comando=self.abrir_inventario)
@@ -57,10 +60,10 @@ class VentanaPrincipal(ct.CTk):
 
         return imagen
 
-    def label_imagen(self, frame, imagen, fila, columna):
+    def label_imagen(self, frame, imagen):
 
         label = ct.CTkLabel(frame, image=imagen, text="", fg_color="transparent")
-        label.grid(row=fila, column=columna, sticky="nsew")
+        label.place(relx=0.5, rely=0.5, anchor="center")
 
         return label
 
@@ -85,9 +88,8 @@ class VentanaPrincipal(ct.CTk):
         return frame_boton
     
     def abrir_inventario(self, event=None):
-        ventana_inventario = VentanaInventario()
-        #ventana_inventario.grab_set()
-        #self.destroy()
+        ventana_inventario = VentanaInventario(self)
+        ventana_inventario.grab_set()
 
 if __name__ == "__main__":
     app = VentanaPrincipal()
