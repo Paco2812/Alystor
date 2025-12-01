@@ -1,6 +1,9 @@
 import customtkinter as ct
 from PIL import Image
+<<<<<<< HEAD
 
+=======
+>>>>>>> 93fb807fe6c4542ef50235478c5e28e9496264dd
 
 class VentanaProducto(ct.CTkToplevel):
     def __init__(self, master):
