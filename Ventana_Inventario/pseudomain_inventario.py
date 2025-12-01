@@ -1,8 +1,9 @@
+from ui.inventario import Inventario
 import customtkinter as ct
 from PIL import Image
 
 
-class VentanaProducto(ct.CTkToplevel):
+class VentanaInventarios(ct.CTkToplevel):
     def __init__(self, master):
         super().__init__(master)
     
@@ -16,8 +17,8 @@ class VentanaProducto(ct.CTkToplevel):
 
         self.centrar_ventana(ANCHO, ALTO)
 
-        frame = ct.CTkFrame(self, fg_color="#D3E0F2", width=664, height=362, corner_radius=30)
-        frame.place(relx=0.5, rely=0.54, anchor="center")
+        frame = Inventario(self)
+        frame.pack(fill="both", expand=True, padx=20, pady=20)
         frame.grid_propagate(False)
 
     
@@ -44,5 +45,5 @@ class VentanaProducto(ct.CTkToplevel):
         return imagen
 
 if __name__ == "__main__":
-    app = VentanaProducto()
+    app = VentanaInventarios()
     app.mainloop()

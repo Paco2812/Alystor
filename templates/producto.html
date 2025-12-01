@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Producto | Alystor</title>
+</head>
+<body>
+
+<h2>{{ producto.nombre }}</h2>
+
+<p><b>ID:</b> {{ producto.id_producto }}</p>
+<p><b>Código de barras:</b> {{ producto.codigo_barras }}</p>
+
+<h3>Lotes</h3>
+<ul>
+{% for lote in lotes %}
+    <li>
+        <b>Lote:</b> {{ lote.numero_lote }} <br>
+        <b>Cantidad:</b> {{ lote.cantidad }} {{ lote.unidad }} <br>
+        <b>Caducidad:</b> {{ lote.fecha_caducidad }}
+    </li>
+{% endfor %}
+</ul>
+
+</body>
+</html>

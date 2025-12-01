@@ -1,6 +1,11 @@
 import customtkinter as ct
 from PIL import Image
 from Gestor_inventario import VentanaInventario
+from Productos_Ventana.pseudomain import VentanaProductos
+from Ventana_Inventario.pseudomain_inventario import VentanaInventarios
+from database.db import init_db
+
+init_db()
 
 class VentanaPrincipal(ct.CTk):
     def __init__(self):
@@ -33,9 +38,9 @@ class VentanaPrincipal(ct.CTk):
 
         # Botones de la página de inicio
         boton1 = self.boton_imagen(frame, self.cargar_imagen("inventario.png", 70, 70), "Gestión de inventario", 0, 0, comando=self.abrir_inventario)
-        boton2 = self.boton_imagen(frame, self.cargar_imagen("reporte_mensual.png", 70, 70), "Reporte mensual", 1, 0)
+        boton2 = self.boton_imagen(frame, self.cargar_imagen("reporte_mensual.png", 70, 70), "Reporte mensual", 1, 0, comando=self.abrir_inventariox)
         boton3 = self.boton_imagen(frame, self.cargar_imagen("estantes.png", 70, 70), "Consultar estantes", 0, 2)
-        boton4 = self.boton_imagen(frame, self.cargar_imagen("scanner.png", 70, 70), "Escanear código", 1, 2)
+        boton4 = self.boton_imagen(frame, self.cargar_imagen("scanner.png", 70, 70), "Escanear código", 1, 2, comando=self.abrir_ventana_producto)
 
     
     def centrar_ventana(self, ancho, alto):
@@ -89,6 +94,14 @@ class VentanaPrincipal(ct.CTk):
     
     def abrir_inventario(self, event=None):
         ventana_inventario = VentanaInventario(self)
+        ventana_inventario.grab_set()
+
+    def abrir_ventana_producto(self, event=None):
+        ventana_producto = VentanaProductos(self)
+        ventana_producto.grab_set()
+
+    def abrir_inventariox(self, event=None):
+        ventana_inventario = VentanaInventarios(self)
         ventana_inventario.grab_set()
 
 if __name__ == "__main__":
