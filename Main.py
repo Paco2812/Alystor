@@ -39,7 +39,7 @@ class VentanaPrincipal(ct.CTk):
         # Botones de la página de inicio
         boton1 = self.boton_imagen(frame, self.cargar_imagen("inventario.png", 70, 70), "Gestión de inventario", 0, 0, comando=self.abrir_inventario)
         boton2 = self.boton_imagen(frame, self.cargar_imagen("reporte_mensual.png", 70, 70), "Reporte mensual", 1, 0, comando=self.abrir_inventariox)
-        boton4 = self.boton_imagen(frame, self.cargar_imagen("scanner.png", 70, 70), "Escanear código", 1, 2, comando=self.abrir_ventana_producto)
+        boton3 = self.boton_imagen(frame, self.cargar_imagen("scanner.png", 70, 70), "Escanear código", 0, 2, comando=self.abrir_ventana_producto)
         boton4 = self.boton_imagen(frame, self.cargar_imagen("Registro_Producto.png", 70, 70), "Registrar producto", 1, 2)
 
     
