@@ -66,7 +66,7 @@ class VentanaInventario(ct.CTkToplevel):
         return ct.CTkImage(light_image=img, dark_image=img, size=(ancho, alto))
 
 
-    def crear_frame_productos(self, frame, fila, nombre, imagen, qr, estado):
+    def crear_frame_productos(self, frame, fila, nombre, imagen, qr, estado, comando=None):
         color = ""
         if (estado == "Excesivo"):
             color = "#A791FF"
@@ -96,12 +96,17 @@ class VentanaInventario(ct.CTkToplevel):
         label_qr = ct.CTkLabel(frame_producto, image=img2, text="")
         label_qr.grid(row=0, column=2, padx=30, pady=5, sticky="e")
 
+        frame_producto.bind("<Button-1>", lambda e: comando())
+        label_imagen.bind("<Button-1>", lambda e: comando())
+        label_nombre.bind("<Button-1>", lambda e: comando())
+        label_qr.bind("<Button-1>", lambda e: comando())
+
         return frame_producto
     
     def lista_productos(self, frame):
         n=0
         for producto in self.productos:
-            self.crear_frame_productos(frame, n, producto[0], producto[1], producto[2], producto[3])
+            self.crear_frame_productos(frame, n, producto[0], producto[1], producto[2], producto[3], self.abrir_info_producto)
             n += 1
 
         return

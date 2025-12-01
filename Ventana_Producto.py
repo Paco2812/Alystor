@@ -1,6 +1,5 @@
 import customtkinter as ct
 from PIL import Image
-from Gestor_inventario import VentanaInventario
 
 class VentanaProducto(ct.CTkToplevel):
     def __init__(self, master):
