@@ -91,10 +91,13 @@ class VentanaInventario(ct.CTkToplevel):
         label_nombre = ct.CTkLabel(frame_producto, text=nombre, fg_color="transparent", font=("Arial", 16))
         label_nombre.grid(row=0, column=1, padx=5, pady=5, sticky="w")
 
+        label_estado = ct.CTkLabel(frame_producto, text=estado, fg_color="transparent", font=("Arial", 16))
+        label_estado.grid(row=0, column=2, padx=5, pady=5, sticky="nsew")
+
         img2 = self.cargar_imagen(qr, 30, 30)
         self.imagenes_cache.append(img2)
         label_qr = ct.CTkLabel(frame_producto, image=img2, text="")
-        label_qr.grid(row=0, column=2, padx=30, pady=5, sticky="e")
+        label_qr.grid(row=0, column=3, padx=30, pady=5, sticky="e")
 
         frame_producto.bind("<Button-1>", lambda e: comando())
         label_imagen.bind("<Button-1>", lambda e: comando())

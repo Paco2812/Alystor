@@ -5,7 +5,8 @@ from sqlalchemy.orm import joinedload
 from services.barcode_service import generar_codigo_barras
 from services.qr_service import generar_qr
 
-IP_LOCAL = "192.168.100.64"
+#IP_LOCAL = "192.168.100.64"
+IP_LOCAL = "10.61.212.161"
 
 
 def registrar_producto(data):
