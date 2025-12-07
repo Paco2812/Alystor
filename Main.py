@@ -34,13 +34,14 @@ class VentanaPrincipal(ct.CTk):
         frame_logo = ct.CTkFrame(frame, fg_color="transparent")
         frame_logo.grid(row=0, column=1, padx=5, pady=5, sticky="nsew", rowspan=2)
 
-        label_logo = self.label_imagen(frame_logo, self.cargar_imagen("Logo_Alystor.png", 200, 200))
+        label_logo = self.label_imagen(frame_logo, self.cargar_imagen("img_iconos\Logo_Alystor.png", 200, 200))
 
         # Botones de la página de inicio
-        boton1 = self.boton_imagen(frame, self.cargar_imagen("inventario.png", 70, 70), "Gestión de inventario", 0, 0, comando=self.abrir_inventario)
-        boton2 = self.boton_imagen(frame, self.cargar_imagen("reporte_mensual.png", 70, 70), "Reporte mensual", 1, 0, comando=self.abrir_inventariox)
-        boton3 = self.boton_imagen(frame, self.cargar_imagen("scanner.png", 70, 70), "Escanear código", 0, 2)
-        boton4 = self.boton_imagen(frame, self.cargar_imagen("Registro_Producto.png", 70, 70), "Registrar producto", 1, 2, comando=self.abrir_ventana_producto)
+        boton1 = self.boton_imagen(frame, self.cargar_imagen("img_iconos\\inventario.png", 70, 70), "Gestión de inventario", 0, 0, comando=self.abrir_inventario)
+        boton2 = self.boton_imagen(frame, self.cargar_imagen("img_iconos\\reporte_mensual.png", 70, 70), "Reporte mensual", 1, 0, comando=self.abrir_inventariox)
+        boton3 = self.boton_imagen(frame, self.cargar_imagen("img_iconos\\Registro_Producto.png", 70, 70), "Registrar producto", 0, 2, comando=self.abrir_ventana_producto)
+        boton4 = self.boton_imagen(frame, self.cargar_imagen("img_iconos\\Lote.png", 70, 70), "Registro lote", 1, 2)
+        
 
     
     def centrar_ventana(self, ancho, alto):
