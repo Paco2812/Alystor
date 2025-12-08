@@ -50,8 +50,8 @@ class VentanaProducto(ct.CTkToplevel):
 
         #Frame derecho
         frame_derecho = self.crear_frame(frame, 0, 2, "ne", "#D3E0F2")
-        img_codigo_barras = self.cargar_imagen(frame_derecho, "barras.png", 100, 50, 0, 0)
-        img_codigo_qr = self.cargar_imagen(frame_derecho, "QR.png", 80, 80, 1, 0)
+        img_codigo_barras = self.cargar_imagen(frame_derecho, "img_iconos/barras.png", 100, 50, 0, 0)
+        img_codigo_qr = self.cargar_imagen(frame_derecho, "img_iconos/QR.png", 80, 80, 1, 0)
 
     
     def centrar_ventana(self, ancho, alto):
